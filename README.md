@@ -12,7 +12,7 @@ traces automatically.
 | Directory | Suite | Stored as | Size |
 |---|---|---|---|
 | `eembc-traces/<bench>/` | EEMBC automotive (10 benches) | plain `trace_C0..C3.trc.shared` | ~57 MB |
-| `splash/<bench>/` | SPLASH-2 applications (13 benches) | **xz archives** `trace_C*.trc.shared.xz` | ~0.8 GB (≈10 GB inflated) |
+| `splash/<bench>/` | SPLASH-2 applications (13 benches) | **xz archives** `trace_C*.trc.shared.xz` | ~650 MB (≈10 GB inflated) |
 | `TestBM/` | tiny smoke-test workload | plain `trace_C0..C3.trc.shared` | KB |
 
 Each benchmark is one directory holding one trace per core, `trace_C<n>.trc.shared`.
@@ -21,9 +21,10 @@ A trace line is `<addr-hex> <core> <R|W> <cycle>`.
 ## The SPLASH-2 traces are compressed
 
 The SPLASH-2 set is ~10 GB uncompressed — far over GitHub's 100 MB per-file
-limit — so it is stored as **xz** archives (`xz -6`, ~12× smaller). The one
-archive that still exceeds the limit is split into `*.xz.part-00`, `-01`, …
-pieces. Inflate them in place with:
+limit — so it is stored as **xz** archives (`xz -6`, ~15× smaller, ~650 MB in
+total; every archive is under the limit). The tooling also reassembles archives
+split into `*.xz.part-00`, `-01`, … pieces, should a future trace ever need it.
+Inflate them in place with:
 
 ```bash
 ./prepare_traces.sh            # every suite (idempotent: existing traces are skipped)
