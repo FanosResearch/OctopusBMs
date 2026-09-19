@@ -14,5 +14,6 @@ splash/**/*.trc
 **/*.err
 **/*.stderr
 **/.probe
+**/.o
 **/CpuAckTrace*.txt
 **/coh*.csv

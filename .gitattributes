@@ -1,0 +1,9 @@
+# Traces are LF text and must stay byte-identical on every platform: never let a
+# CRLF checkout (e.g. core.autocrlf=true on Windows) rewrite them. The xz archives
+# and their split parts are binary.
+*.trc.shared             text eol=lf
+*.trc                    text eol=lf
+*.trc.shared.xz          binary
+*.trc.shared.xz.part-*   binary
+*.sh                     text eol=lf
+*.md                     text
