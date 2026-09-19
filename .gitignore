@@ -1,0 +1,18 @@
+# --- inflated SPLASH-2 traces: regenerated locally from the tracked .xz archives
+#     by prepare_traces.sh; never committed (they total ~10 GB) ---
+splash/**/*.trc.shared
+splash/**/*.trc
+
+# transient pieces written while compressing / inflating
+**/*.xz.tmp
+**/*.inflating.*
+
+# simulator run outputs and scratch (a run writes into <bench>/newLogger/)
+**/newLogger/
+**/nl_*/
+**/*.out
+**/*.err
+**/*.stderr
+**/.probe
+**/CpuAckTrace*.txt
+**/coh*.csv

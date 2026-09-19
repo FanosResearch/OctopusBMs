@@ -1,0 +1,2 @@
+-s MultiCoreSystem
+-p workload_path(s)=BMs/eembc-traces/ttsprk01-trace/
